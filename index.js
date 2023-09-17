@@ -2,7 +2,24 @@ require('dotenv').config();
 const ccxt = require('ccxt');
 const moment = require('moment');
 const TelegramBot = require('node-telegram-bot-api');
+const express = require('express');
+const bodyParser = require('body-parser');
 
+const app = express();
+app.use(bodyParser.json());
+
+app.post('/webhook', (req, res) => {
+  const update = req.body;
+  // Handle the update (e.g., process messages)
+  main()
+  // ...
+  res.sendStatus(200);
+});
+
+const PORT = process.env.PORT || 3000;
+app.listen(PORT, () => {
+  console.log(`Server is running on port ${PORT}`);
+});
 async function main() {
   // replace 'YOUR_BOT_TOKEN' with the token you received from BotFather
   const bot = new TelegramBot(process.env.YOUR_BOT_TOKEN, { polling: true });
