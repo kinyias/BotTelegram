@@ -1,0 +1,17 @@
+{
+  "name": "signaltradingdev",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "ccxt": "^4.0.86",
+    "dotenv": "^16.3.1",
+    "moment": "^2.29.4",
+    "node-telegram-bot-api": "^0.61.0"
+  }
+}
