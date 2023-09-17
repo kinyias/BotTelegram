@@ -18,7 +18,7 @@ app.post('/webhook', (req, res) => {
 
 app.get('/', async (req, res) => {
   main();
-  res.sendStatus(200);
+  res.json({success: true, message: 'Telegram  Bot'})
 });
 
 const PORT = process.env.PORT || 3000;
@@ -27,7 +27,10 @@ app.listen(PORT, () => {
 });
 async function main() {
   // replace 'YOUR_BOT_TOKEN' with the token you received from BotFather
-  const bot = new TelegramBot(process.env.YOUR_BOT_TOKEN, { polling: true });
+  const bot = new TelegramBot(process.env.YOUR_BOT_TOKEN);
+  const webhookUrl = 'https://bot-telegram-chi.vercel.app/';
+
+    bot.setWebHook(webhookUrl);
   // Listen for any kind of message
   //   bot.on('message', async (msg) => {
   //     const chatId = msg.chat.id;
